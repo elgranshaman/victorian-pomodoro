@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pomodoro Timer</h1>
+        <div class="timer">
+            <span id="minutes">25</span>:<span id="seconds">00</span>
+        </div>
+        <div class="controls">
+            <button id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="mode">
+            <button id="work" class="active">Work</button>
+            <button id="break">Break</button>
+        </div>
+        <div class="duration-options">
+            <button id="duration-20" class="duration">20 min</button>
+            <button id="duration-25" class="duration active">25 min</button>
+            <button id="duration-30" class="duration">30 min</button>
+            <button id="duration-40" class="duration">40 min</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
