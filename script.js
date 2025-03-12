@@ -1,7 +1,7 @@
 let timerInterval;
 let isRunning = false;
 let isWorkMode = true;
-let workDuration = 25 * 60;
+let workDuration = 20 * 60;
 let breakDuration = 5 * 60;
 let currentTime = workDuration;
 
