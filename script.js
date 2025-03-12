@@ -19,6 +19,10 @@ function updateTimerDisplay() {
     const seconds = currentTime % 60;
     minutesElement.textContent = minutes.toString().padStart(2, '0');
     secondsElement.textContent = seconds.toString().padStart(2, '0');
+    // Update progress bar
+    const totalDuration = isWorkMode ? workDuration : breakDuration;
+    const progressPercentage = ((totalDuration - currentTime) / totalDuration) * 100;
+    document.querySelector('.progress').style.width = `${progressPercentage}%`;
 }
 
 function startTimer() {
