@@ -51,6 +51,7 @@ function resetTimer() {
     isRunning = false;
     currentTime = isWorkMode ? workDuration : breakDuration;
     updateTimerDisplay();
+    document.getElementById('focus-message').textContent = ''; // Clear the displayed focus message
 }
 
 function switchMode() {
@@ -84,7 +85,15 @@ durationButtons.forEach(button => {
     });
 });
 
-startButton.addEventListener('click', startTimer);
+updateTimerDisplay();
+
+// Override start button event listener to show focus modal popup
+startButton.addEventListener('click', () => {
+    if (!isRunning) {
+        showFocusPopup();
+    }
+});
+
 pauseButton.addEventListener('click', pauseTimer);
 resetButton.addEventListener('click', resetTimer);
 workButton.addEventListener('click', () => {
@@ -98,4 +107,18 @@ breakButton.addEventListener('click', () => {
     }
 });
 
-updateTimerDisplay(); 
+// Function to show focus popup modal
+function showFocusPopup() {
+    const popup = document.getElementById('focus-popup');
+    popup.style.display = 'flex';
+}
+
+// Listen for the 'Go' button click in the modal
+document.getElementById('focus-go').addEventListener('click', () => {
+    const focusInput = document.getElementById('focus-input');
+    const focusMessage = document.getElementById('focus-message');
+    focusMessage.textContent = focusInput.value;
+    document.getElementById('focus-popup').style.display = 'none';
+    focusInput.value = '';
+    startTimer();
+}); 
